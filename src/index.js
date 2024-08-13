@@ -1,7 +1,7 @@
 import React from "react";
 import { createRoot, hydrateRoot } from "react-dom/client";
 import App from "./App";
-// import './styles.css'
+import './styles.css'
 
 const container = document.getElementById("root");
 
@@ -9,7 +9,7 @@ const initialData = {
   code: 3,
   msg: "Books selected",
   data: [
-    { id: 1, type: "2", name: "计算机", description: "这是初级教程" },
+    { id: 1, type: "2", name: "计算机这是二次渲染", description: "这是初级教程" },
     { id: 2, type: "", name: "Java", description: "这是java高级教程" },
     { id: 3, type: "", name: "Java", description: "这是java高级教程" },
     { id: 4, type: "", name: "Java", description: "这是java高级教程" },

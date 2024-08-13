@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -15,6 +16,14 @@ module.exports = {
         use: {
           loader: 'babel-loader',
         },
+      },
+      {
+        test: /\.css$/,
+        use: [
+          // 使用 MiniCssExtractPlugin.loader 以提取 CSS 到单独文件
+          MiniCssExtractPlugin.loader,
+          'css-loader', // 解析 CSS 文件
+        ],
       },
     ],
   },
@@ -37,6 +46,9 @@ module.exports = {
         minifyCSS: false,           // 不最小化 CSS
         minifyURLs: false,          // 不最小化 URL
       },
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'styles.css', // 输出的 CSS 文件名
     }),
   ],
   devServer: {
