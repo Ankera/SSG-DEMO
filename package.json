@@ -6,7 +6,7 @@
   "scripts": {
     "generate-html": "node generateStaticHtml.js",
     "build": "npm run generate-html && webpack --mode production",
-    "start": "webpack serve --mode development"
+    "start": "npm run generate-html && webpack serve --mode development"
   },
   "keywords": [],
   "author": "",

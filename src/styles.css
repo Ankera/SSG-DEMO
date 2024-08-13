@@ -12,3 +12,7 @@ h1, h2 {
 .App {
   padding: 20px;
 }
+
+li {
+  list-style: none;
+}

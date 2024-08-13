@@ -8,12 +8,17 @@ const fs = require('fs');
 const path = require('path');
 const prettier = require('prettier');
 
-async function generateHtml() {
-  // 引入你的 React 顶层组件
-  const App = require('./src/App').default;
+const App = require('./src/App').default;
 
-  // 使用 ReactDOMServer 渲染组件为 HTML
-  const appHtml = ReactDOMServer.renderToString(React.createElement(App));
+// 从 books.js 中获取数据
+const { fetchBooks } = require('./src/data/books');
+
+async function generateHtml() {
+  // 获取书籍数据
+  const booksData = await fetchBooks();
+
+  // 渲染组件并将数据传递给组件
+  const appHtml = ReactDOMServer.renderToString(React.createElement(App, { books: booksData }));
 
   // 读取模板文件
   let template = fs.readFileSync(path.resolve(__dirname, 'public/index.html'), 'utf8');

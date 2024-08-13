@@ -5,7 +5,7 @@ const BookList = ({ books }) => {
     <div>
       <h2>Book List</h2>
       <ul>
-        {books.data.map((book) => (
+        {(books.data || []).map((book) => (
           <li key={book.id}>
             <h3>{book.name || 'Unknown Book'}</h3>
             <p>{book.description || 'No description available'}</p>
@@ -18,3 +18,4 @@ const BookList = ({ books }) => {
 };
 
 export default BookList;
+
