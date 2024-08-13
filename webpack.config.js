@@ -23,7 +23,20 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html',
+      template: './dist/index.html', // 使用之前生成的静态 HTML
+      inject: 'body', // 将 JavaScript 注入到 body 的末尾
+      minify: {
+        collapseWhitespace: false, // 不折叠空白，保留格式
+        removeComments: true,       // 移除注释
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: false,            // 不最小化 JavaScript
+        minifyCSS: false,           // 不最小化 CSS
+        minifyURLs: false,          // 不最小化 URL
+      },
     }),
   ],
   devServer: {
