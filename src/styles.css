@@ -15,3 +15,13 @@ h1, h2 {
 li {
   list-style: none;
 }
+
+.book_ul {
+  width: calc(100vw - 48px);
+  margin: 0 auto;
+  background-color: #f2f2f2;
+}
+
+.book_ul li {
+  border-bottom: 10px solid blueviolet;
+}
