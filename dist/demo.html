@@ -4,13 +4,28 @@
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width,initial-scale=1"/>
         <title>React Book Store</title>
-    <link href="styles.css" rel="stylesheet"></head>
+    <style>
+
+    li {
+      list-style: none;
+    }
+
+    .book_ul {
+      width: calc(100vw - 48px);
+      margin: 0 auto;
+      background-color: #f2f2f2;
+    }
+
+    .book_ul li {
+      border-bottom: 10px solid blueviolet;
+    }
+    </style>
     <body>
         <div id="root">
             <div>
                 <div id="blade" style="opacity: 0">
                     这是blade替换位置
-                   <!-- INSERT_HELLO -->
+                    @include('layouts.component.aside', ['pice' => 1])
                 </div>
                 <h1>Welcome to the Book Store</h1>
                 <div>
@@ -132,5 +147,5 @@
                 </div>
             </div>
         </div>
-    <script defer="defer" src="umd-deals.js"></script></body>
+    <script defer="defer" src="https://adsimg.vevorstatic.com/upload/vevor/activity/20240814/78A4C9A8820818220820634C93366AB5.js"></script></body>
 </html>

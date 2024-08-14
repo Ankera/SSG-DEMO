@@ -18,12 +18,13 @@ const jsonData = {
 const jsonLD = JSON.stringify(jsonData, null, 4);
 
 const BookList = ({ books }) => {
+  const list = books && Array.isArray(books.data) ? books.data : []
   return (
     <div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html: jsonLD}}></script>
       <h2>Book List</h2>
       <ul className="book_ul">
-        {(books.data || []).map((book) => (
+        {list.map((book) => (
           <li key={book.id}>
             <h3>{book.name || "Unknown Book"}</h3>
             <p>{book.description || "No description available"}</p>

@@ -1,14 +1,14 @@
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const StringReplacePlugin = require('./webpack-string-replace-plugin');
 
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: 'umd-deals.js',
+    library: 'MyLibrary',  // 模块名称，在使用 UMD 时对外暴露的变量名
+    libraryTarget: 'umd', 
   },
   module: {
     rules: [
