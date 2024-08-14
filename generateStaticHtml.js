@@ -18,13 +18,20 @@ async function generateHtml() {
   const booksData = await fetchBooks();
 
   // 渲染组件并将数据传递给组件
-  const appHtml = ReactDOMServer.renderToString(React.createElement(App, { books: booksData }));
+  const appHtml = ReactDOMServer.renderToString(React.createElement(App, { 
+    books: booksData,
+    layouts_component_aside: "layouts_component_aside"
+  }));
 
   // 读取模板文件
   let template = fs.readFileSync(path.resolve(__dirname, 'public/index.html'), 'utf8');
 
   // 将渲染后的 HTML 注入到模板中
   let finalHtml = template.replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`);
+
+  var replacement = "@include('layouts.component.aside', ['pice' => 1])";
+  
+  finalHtml = finalHtml.replace(/layouts_component_aside/g, replacement);
 
   // 使用 Prettier 格式化 HTML，并设置缩进为 4 个空格
   finalHtml = await prettier.format(finalHtml, {

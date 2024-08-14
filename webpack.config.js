@@ -1,6 +1,8 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const StringReplacePlugin = require('./webpack-string-replace-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -50,6 +52,13 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'styles.css', // 输出的 CSS 文件名
     }),
+    // new webpack.DefinePlugin({
+    //   '____layouts_component_aside____': JSON.stringify("@include('layouts.component.aside')")
+    // }),
+    // new StringReplacePlugin({
+    //   search: '____layouts_component_aside____',
+    //   replace: "@include('layouts.component.aside')"
+    // })
   ],
   devServer: {
     static: {
